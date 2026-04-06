@@ -7,10 +7,11 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-# Fix permissions for node binaries
-RUN chmod +x node_modules/.bin/*
-
 COPY . .
+
+# Fix permissions for node binaries
+RUN find node_modules/.bin -type f -name "*" -exec chmod +x {} \;
+
 RUN npm run build
 
 # Production stage: Serve with Nginx
