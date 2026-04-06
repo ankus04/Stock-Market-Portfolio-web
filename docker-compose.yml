@@ -2,7 +2,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "80:80"
+      - "3000:80"
     depends_on:
       - backend
     networks:
@@ -14,7 +14,7 @@ services:
       - "5000:5000"
     environment:
       - NODE_ENV=production
-      - MONGO_URI=mongodb://mongodb:27017/stock-portfolio
+      - MONGODB_URI=mongodb://mongodb:27017/stock-portfolio
       - JWT_SECRET=${JWT_SECRET}
       - PORT=5000
     depends_on:
