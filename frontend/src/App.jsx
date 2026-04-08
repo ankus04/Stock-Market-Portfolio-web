@@ -21,7 +21,7 @@ import AdminDashboard from "./components/AdminDashboard";
 // Import layout components
 import { PublicLayout, LoggedInPublicLayout, AuthenticatedLayout } from "./components/Layout";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = `http://${window.location.hostname}:5000/api`;
 const storedAuth = localStorage.getItem("stockPortfolioAuth");
 
 if (storedAuth) {
